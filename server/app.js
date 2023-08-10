@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/contact', contactRoute);
+app.use('/api/v1/protfolio', contactRoute);
 
 // handling all the unhandled routes
 app.all('*', (req, res, next) => {
