@@ -1,4 +1,4 @@
-class CustomError extends Error {
+class CustomHttpError extends Error {
   httpStatusCode;
   timestamp;
   documentationUrl;
@@ -11,7 +11,7 @@ class CustomError extends Error {
     }
 
     // initializing the class properties
-    this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
+    this.status = `${httpStatusCode}`.startsWith('4') ? 'fail' : 'error';
     this.httpStatusCode = httpStatusCode;
     this.timestamp = new Date().toISOString();
     this.documentationUrl = documentationUrl;
@@ -21,7 +21,5 @@ class CustomError extends Error {
     Error.captureStackTrace(this, this.constructor);
   }
 }
-
-const CustomHttpError = CustomError;
 
 export { CustomHttpError };

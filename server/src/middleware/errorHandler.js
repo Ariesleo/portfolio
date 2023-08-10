@@ -4,7 +4,7 @@ import { CustomHttpError } from '../errors/CustomError.js';
 
 const errorHandler = (err, req, res, next) => {
   const defaultError = {
-    httpStatusCode: err.statusCode || statusCodes.INTERNAL_SERVER_ERROR,
+    httpStatusCode: err.httpStatusCode || statusCodes.INTERNAL_SERVER_ERROR,
     msg: err.message || 'Something went wrong, try again later',
   };
 
@@ -19,9 +19,9 @@ const errorHandler = (err, req, res, next) => {
       // since in JavaScript you can also
       // directly throw strings
       if (typeof err === 'string') {
-        message = err;
+        defaultError.msg = err;
       } else if (err instanceof Error) {
-        message = err.message;
+        defaultError.msg = err.message;
       }
     }
   }
@@ -39,9 +39,9 @@ const errorHandler = (err, req, res, next) => {
   // other custom behaviors...
 
   // return the standard error response
-  res.status(httpStatusCode).send({
+  res.status(defaultError.httpStatusCode).send({
     error: {
-      message: message,
+      message: defaultError.msg,
       timestamp: err.timestamp || undefined,
       documentationUrl: err.documentationUrl || undefined,
       stackTrace: stackTrace,
@@ -49,23 +49,6 @@ const errorHandler = (err, req, res, next) => {
   });
 
   return next(err);
-
-  // Handle specific error types
-  // if (err.name === 'ValidationError') {
-  //   defaultError.statusCode = statusCodes.BAD_REQUEST;
-  //   // defaultError.msg = err.message
-  //   defaultError.msg = Object.values(err.errors)
-  //     .map((item) => item.message)
-  //     .join(',');
-  // }
-  // if (err.code && err.code === 11000) {
-  //   defaultError.statusCode = statusCodes.BAD_REQUEST;
-  //   defaultError.msg = `${Object.keys(err.keyValue)} field has to be unique`;
-  // }
-
-  // console.log({ defaultError });
-
-  // res.status(defaultError.statusCode).send({ msg: defaultError.msg });
 };
 
 export default errorHandler;

@@ -1,14 +1,13 @@
+import statusCodes from '../constants/statusCodes.js';
+import { CustomHttpError } from '../errors/CustomError.js';
 import { ContactQueryModel } from '../models/contactsQuery.js';
 
 const updateContact = async (data) => {
   try {
-    // console.log({ data });
     const res = await ContactQueryModel.create(data);
-    // console.log({ res });
     return res;
   } catch (err) {
-    // console.log('=========', err);
-    return err;
+    throw new CustomHttpError(statusCodes.INTERNAL_SERVER_ERROR, err.message);
   }
 };
 
