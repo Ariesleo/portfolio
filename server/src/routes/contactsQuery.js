@@ -5,7 +5,7 @@ const router = express.Router();
 
 // contact route
 router
-  .route('/contact')
+  .route('/')
   .post(
     contactController.validateContactQuery,
     contactController.addContactQuery
