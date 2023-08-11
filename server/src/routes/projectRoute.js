@@ -10,6 +10,12 @@ router
   .get(projectController.getProjects);
 
 // delete
-router.route('/:id').delete(projectController.deleteProjectById);
+router
+  .route('/:id')
+  .delete(projectController.deleteProjectById)
+  .patch(
+    projectController.validatePartialData,
+    projectController.updateProject
+  );
 
 export default router;

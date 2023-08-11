@@ -24,9 +24,23 @@ const findAllProjects = async () => {
 // delete project as per the id
 const deleteProject = async (projectId) => {
   try {
-    return await ProjectModel.findByIdAndDelete(projectId);
+    return await ProjectModel.findByIdAndDelete(projectId).select('-image');
   } catch (err) {
     throw new ApplicationError(CommonError.INTERNAL_SERVER_ERROR);
   }
 };
-export { createProject, findAllProjects, deleteProject };
+
+// update data
+const updateProject = async (projectId, payload) => {
+  try {
+    /* By adding the { new: true } option, you instruct Mongoose to return the updated document instead of the original document. */
+    /* exclude the image field from the response */
+    return await ProjectModel.findByIdAndUpdate(projectId, payload, {
+      new: true,
+    }).select('-image');
+  } catch (err) {
+    throw new ApplicationError(CommonError.INTERNAL_SERVER_ERROR);
+  }
+};
+
+export { createProject, findAllProjects, deleteProject, updateProject };

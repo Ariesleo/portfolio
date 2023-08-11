@@ -1,4 +1,4 @@
-import { projectSchema } from './validation.js';
+import { projectSchema, patchProjectSchema } from './validation.js';
 import statusCodes from '../../constants/statusCodes.js';
 import { CommonError } from '../../lib/api/error/commonError.js';
 import { createError } from '../../lib/api/error/errorFactory.js';
@@ -9,6 +9,18 @@ import * as projectService from '../../services/projects/projectService.js';
 const validateProject = async (req, res, next) => {
   try {
     await projectSchema().validate(req.body, {
+      abortEarly: false,
+    });
+  } catch (e) {
+    return next(createError(e));
+  }
+  next();
+};
+
+// validate the partial project request body
+const validatePartialData = async (req, res, next) => {
+  try {
+    await patchProjectSchema().validate(req.body, {
       abortEarly: false,
     });
   } catch (e) {
@@ -65,4 +77,34 @@ const deleteProjectById = async (req, res, next) => {
   }
 };
 
-export { postProject, validateProject, getProjects, deleteProjectById };
+// PATCH project by id and payload received
+const updateProject = async (req, res, next) => {
+  const projectId = req.params.id;
+  const payload = req.body;
+  try {
+    const projectData = await projectService.updateProjectById(
+      projectId,
+      payload
+    );
+    if (!projectData) {
+      throw new ApplicationError(CommonError.RESOURCE_NOT_FOUND);
+    } else {
+      res.status(statusCodes.OK).send({
+        success: 'true',
+        message: `Project with id: ${projectId} was updated sucessfully`,
+        data: projectData,
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export {
+  postProject,
+  validateProject,
+  getProjects,
+  deleteProjectById,
+  updateProject,
+  validatePartialData,
+};

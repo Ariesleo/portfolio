@@ -26,4 +26,12 @@ const removeProjectById = async (projectId) => {
   }
 };
 
-export { createProject, getProjects, removeProjectById };
+const updateProjectById = async (projectId, payload) => {
+  try {
+    return await projectDAO.updateProject(projectId, payload);
+  } catch (err) {
+    throw new ApplicationError(err);
+  }
+};
+
+export { createProject, getProjects, removeProjectById, updateProjectById };
