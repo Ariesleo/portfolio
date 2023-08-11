@@ -21,4 +21,12 @@ const findAllProjects = async () => {
   }
 };
 
-export { createProject, findAllProjects };
+// delete project as per the id
+const deleteProject = async (projectId) => {
+  try {
+    return await ProjectModel.findByIdAndDelete(projectId);
+  } catch (err) {
+    throw new ApplicationError(CommonError.INTERNAL_SERVER_ERROR);
+  }
+};
+export { createProject, findAllProjects, deleteProject };

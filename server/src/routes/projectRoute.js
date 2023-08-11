@@ -9,4 +9,7 @@ router
   .post(projectController.validateProject, projectController.postProject)
   .get(projectController.getProjects);
 
+// delete
+router.route('/:id').delete(projectController.deleteProjectById);
+
 export default router;

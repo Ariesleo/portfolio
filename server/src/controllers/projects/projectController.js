@@ -1,6 +1,8 @@
 import { projectSchema } from './validation.js';
 import statusCodes from '../../constants/statusCodes.js';
+import { CommonError } from '../../lib/api/error/commonError.js';
 import { createError } from '../../lib/api/error/errorFactory.js';
+import { ApplicationError } from '../../lib/api/error/applicationError.js';
 import * as projectService from '../../services/projects/projectService.js';
 
 // validate the project request body
@@ -44,4 +46,23 @@ const getProjects = async (req, res, next) => {
   }
 };
 
-export { postProject, validateProject, getProjects };
+// DELETE project by id
+const deleteProjectById = async (req, res, next) => {
+  const projectId = req.params.id;
+  try {
+    const projectData = await projectService.removeProjectById(projectId);
+    if (!projectData) {
+      throw new ApplicationError(CommonError.RESOURCE_NOT_FOUND);
+    } else {
+      res.status(statusCodes.OK).send({
+        success: 'true',
+        message: `Project with id: ${projectId} was deleted sucessfully`,
+        data: projectData,
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { postProject, validateProject, getProjects, deleteProjectById };
