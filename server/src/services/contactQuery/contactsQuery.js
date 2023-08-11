@@ -1,7 +1,6 @@
-import { CommonError } from '../../lib/api/error/commonError.js';
+import sendMail from './sendEmail.js';
 import updateContact from '../../dao/contactQuery/contactsQueryDao.js';
 import { ApplicationError } from '../../lib/api/error/applicationError.js';
-import sendMail from './sendEmail.js';
 
 const postContactQuery = async (dataQuery) => {
   try {
