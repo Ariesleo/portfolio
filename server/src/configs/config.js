@@ -11,6 +11,7 @@ const config = {
   sendgrid_api_key: env.SENDGRID_API_KEY,
   from_email: env.FROM_EMAIL,
   to_email: env.TO_EMAIL,
+  body_parser_limit: env.BODY_PARSER_LIMIT,
 };
 
 export default config;

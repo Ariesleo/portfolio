@@ -1,12 +1,20 @@
 import express from 'express';
-import contactRoute from './src/routes/contactsQuery.js';
+import bodyParser from 'body-parser';
+import config from './src/configs/config.js';
 import projectRoute from './src/routes/projectRoute.js';
+import contactRoute from './src/routes/contactsQuery.js';
 import errorHandler from './src/middleware/errorHandler.js';
 import { CommonError } from './src/lib/api/error/commonError.js';
 import { ApplicationError } from './src/lib/api/error/applicationError.js';
 
 // Initializing the express app
 const app = express();
+
+// Increase request body size limit
+app.use(bodyParser.json({ limit: config.body_parser_limit }));
+app.use(
+  bodyParser.urlencoded({ limit: config.body_parser_limit, extended: true })
+);
 
 // parsing
 app.use(express.json());
