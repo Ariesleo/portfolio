@@ -30,4 +30,18 @@ const postProject = async (req, res, next) => {
   }
 };
 
-export { postProject, validateProject };
+// GET all projects
+const getProjects = async (req, res, next) => {
+  try {
+    const projectData = await projectService.getProjects();
+    res.status(statusCodes.OK).send({
+      success: 'true',
+      message: 'Projects data fetched.',
+      data: projectData,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export { postProject, validateProject, getProjects };

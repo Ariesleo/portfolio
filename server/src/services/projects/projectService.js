@@ -10,4 +10,12 @@ const createProject = async (data) => {
   }
 };
 
-export { createProject };
+const getProjects = async () => {
+  try {
+    return await projectDAO.findAllProjects();
+  } catch (err) {
+    throw new ApplicationError(err);
+  }
+};
+
+export { createProject, getProjects };
