@@ -1,11 +1,14 @@
 import { projectSchema } from './validation.js';
 import statusCodes from '../../constants/statusCodes.js';
+import { createError } from '../../lib/api/error/errorFactory.js';
 import * as projectService from '../../services/projects/projectService.js';
 
 // validate the project request body
 const validateProject = async (req, res, next) => {
   try {
-    await projectSchema().validate(req.body, { abortEarly: false });
+    await projectSchema().validate(req.body, {
+      abortEarly: false,
+    });
   } catch (e) {
     return next(createError(e));
   }
