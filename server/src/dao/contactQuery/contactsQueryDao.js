@@ -1,4 +1,3 @@
-import statusCodes from '../../constants/statusCodes.js';
 import { CommonError } from '../../lib/api/error/commonError.js';
 import { ContactQueryModel } from '../../models/contactsQuery.js';
 import { ApplicationError } from '../../lib/api/error/applicationError.js';
