@@ -21,25 +21,29 @@ const projectSchema = new Schema(
       type: [String],
     },
     image: {
-      data: Buffer, // Binary image data
-      contentType: String, // MIME type of the image
+      type: String,
+      default: null,
     },
     githubUrl: {
       type: String,
+      default: null,
     },
     demoUrl: {
       type: String,
+      default: null,
     },
     isPersonalProject: {
       type: Boolean,
       required: true,
-      default: true,
+      default: false,
     },
     startDate: {
       type: Date,
+      default: null,
     },
     endDate: {
       type: Date,
+      default: null,
     },
   },
   { timestamps: true }

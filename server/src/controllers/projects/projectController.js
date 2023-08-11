@@ -16,7 +16,7 @@ const validateProject = async (req, res, next) => {
 };
 
 // POST project payload
-const post = async (req, res, next) => {
+const postProject = async (req, res, next) => {
   const payload = req.body;
   try {
     const newProject = await projectService.createProject(payload);
@@ -30,4 +30,4 @@ const post = async (req, res, next) => {
   }
 };
 
-export { post, validateProject };
+export { postProject, validateProject };

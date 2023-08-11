@@ -20,7 +20,7 @@ const validationErrors = {
     type: type.ENTITY_PARSE_FAILED,
     name: 'SyntaxError',
     code: `VALIDATION_ERROR`,
-    message: `Malformed file data`,
+    message: `Malformed file data or request body data can be malformed`,
     errors: 'SyntaxError: Unexpected token',
     statusCode: statusCodes.BAD_REQUEST,
   },

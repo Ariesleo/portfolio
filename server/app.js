@@ -1,5 +1,5 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import config from './src/configs/config.js';
 import projectRoute from './src/routes/projectRoute.js';
 import contactRoute from './src/routes/contactsQuery.js';
@@ -10,15 +10,12 @@ import { ApplicationError } from './src/lib/api/error/applicationError.js';
 // Initializing the express app
 const app = express();
 
-// Increase request body size limit
-app.use(bodyParser.json({ limit: config.body_parser_limit }));
-app.use(
-  bodyParser.urlencoded({ limit: config.body_parser_limit, extended: true })
-);
-
 // parsing
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Increase request body size limit
+app.use(express.json({ limit: config.body_parser_limit }));
+app.use(
+  express.urlencoded({ limit: config.body_parser_limit, extended: true })
+);
 
 // Routes
 app.use('/api/v1/contacts', contactRoute);
