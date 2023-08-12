@@ -9,4 +9,12 @@ const updateProfile = async (payload) => {
   }
 };
 
-export { updateProfile };
+const fetchProfile = async () => {
+  try {
+    return await profileDAO.findProfile();
+  } catch (err) {
+    throw new ApplicationError(err);
+  }
+};
+
+export { updateProfile, fetchProfile };

@@ -6,15 +6,7 @@ const router = express.Router();
 // contact route
 router
   .route('/')
-  .patch(profileController.validateProfile, profileController.postProfile);
-
-// delete
-// router
-//   .route('/:id')
-//   .delete(projectController.deleteProjectById)
-//   .patch(
-//     projectController.validatePartialData,
-//     projectController.updateProject
-//   );
+  .patch(profileController.validateProfile, profileController.patchProfile)
+  .get(profileController.getProfile);
 
 export default router;

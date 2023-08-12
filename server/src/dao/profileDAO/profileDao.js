@@ -21,9 +21,16 @@ const updateOrCreateProfile = async (payload) => {
 
     return updatedProfile;
   } catch (error) {
-    console.log(error);
     throw new ApplicationError(CommonError.INTERNAL_SERVER_ERROR);
   }
 };
 
-export { updateOrCreateProfile };
+const findProfile = async () => {
+  try {
+    return await ProfileModel.findOne();
+  } catch (error) {
+    throw new ApplicationError(CommonError.INTERNAL_SERVER_ERROR);
+  }
+};
+
+export { updateOrCreateProfile, findProfile };
