@@ -14,9 +14,6 @@ const StyledButton = styled.button`
   background: var(--button-dark);
   transition: background-color 0.2s;
 
-  /* transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); */
-
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -55,8 +52,8 @@ const StyledButton = styled.button`
         color: var(--yellow);
       }
     `}
-    
-    /* styles for disabled state */
+
+  /* styles for disabled state */
   ${(props) =>
     props.disabled &&
     css`
