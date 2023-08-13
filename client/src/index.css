@@ -9,12 +9,15 @@ html {
   /* colors */
   --dark: #011627;
   --fade-dark: #1e2d3d;
+  --button-dark: #1c2b3a;
   --grey: #607b96;
   --white: #fff;
   --light-white: #e5e9f0;
   --light-blue: #4d5bce;
   --green: #43d9ad;
   --brown: #e99287;
+  --yellow: #fea55f;
+  --black: #01080e;
 
   /* font */
   --bodyFont: 'Fira Code';
@@ -29,8 +32,12 @@ body {
 }
 
 p {
-  margin-bottom: 1rem;
-  max-width: 40em;
+  /* color: #607b96; */
+  font-family: var(--bodyFont);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
 }
 
 h1,
@@ -40,7 +47,7 @@ h4,
 h5 {
   margin: 0;
   margin-bottom: 1.38rem;
-  font-family: 'Fira Code';
+  font-family: var(--bodyFont);
   font-weight: 400;
   line-height: normal;
   /* text-transform: capitalize; */
