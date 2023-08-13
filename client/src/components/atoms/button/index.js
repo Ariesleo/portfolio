@@ -6,3 +6,12 @@ const Button = (props) => {
 };
 
 export default Button;
+
+/* 
+button demo
+
+<Button outlined>Skip</Button>
+      <Button text>text</Button>
+      <Button>view-project</Button>
+      <Button game>start-game</Button>
+*/
