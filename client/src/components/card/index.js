@@ -47,3 +47,22 @@ const Card = ({
 };
 
 export default Card;
+
+/* 
+
+ const project = {
+    imageSrc: 'https://via.placeholder.com/300x200', // Replace with your actual image URL
+    title: 'Sample Project',
+    description:
+      'Duis aute irure dolor in velit esse cillum dolore hero hamada is doing all the works in his life.',
+    techStacks: ['React', 'Node.js', 'MongoDB'],
+  };
+
+<Card
+        imageSrc={project.imageSrc}
+        title={project.title}
+        description={project.description}
+        techStacks={project.techStacks}
+      />
+
+*/
