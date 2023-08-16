@@ -1,7 +1,15 @@
 import React from 'react';
 import { TableContainer, TableHeader, TableRow, TableCell } from './styles';
+import Button from '../atoms/button';
 
-const Table = ({ headers, data, addTableHeader, addTableCell }) => {
+const Table = ({
+  headers,
+  data,
+  addTableHeader,
+  addTableCell,
+  handleDelete, //function call to handle the delete operations with the row data passed
+  handleUpdate, //function call to handle the update operations with the row data passed
+}) => {
   return (
     <TableContainer>
       <thead>
@@ -15,10 +23,17 @@ const Table = ({ headers, data, addTableHeader, addTableCell }) => {
       <tbody>
         {data.map((row, rowIndex) => (
           <TableRow key={rowIndex}>
-            {row.map((cell, cellIndex) => (
+            {Object.values(row).map((cell, cellIndex) => (
               <TableCell key={cellIndex}>{cell}</TableCell>
             ))}
-            {addTableCell && <TableCell>{addTableCell}</TableCell>}
+            {addTableHeader && addTableCell && (
+              <TableCell>
+                <div style={{ display: 'flex' }}>
+                  <Button onClick={() => handleUpdate(row)}>U</Button>
+                  <Button onClick={() => handleDelete(row)}>D</Button>
+                </div>
+              </TableCell>
+            )}
           </TableRow>
         ))}
       </tbody>
