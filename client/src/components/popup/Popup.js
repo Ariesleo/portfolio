@@ -3,7 +3,7 @@ import { PopupContainer, PopupContent, CloseButton } from './styles.js';
 
 const Popup = ({ visible, onClose, children }) => {
   return (
-    <PopupContainer visible={visible}>
+    <PopupContainer visible={visible ? 'true' : 'false'}>
       <PopupContent>
         <CloseButton onClick={onClose}>X</CloseButton>
         {children}
