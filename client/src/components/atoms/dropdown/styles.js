@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from '../button';
 
 const DropdownContainer = styled.div`
-  position: relative;
+  /* position: relative; */
   display: inline-block;
 `;
 
@@ -11,7 +11,7 @@ const DropdownButton = styled(Button)`
 `;
 
 const DropdownList = styled.ul`
-  position: absolute;
+  /* position: absolute; */
   top: 100%;
   left: 0;
   width: 100%;
