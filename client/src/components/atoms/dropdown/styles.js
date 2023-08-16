@@ -21,7 +21,7 @@ const DropdownList = styled.ul`
   background-color: var(--dark);
   border: 1px solid var(--fade-dark);
   border-radius: 10px;
-  display: ${(props) => (props.isOpen ? 'block' : 'none')};
+  display: ${(props) => (props.isopen === 'true' ? 'block' : 'none')};
 `;
 
 const DropdownListItem = styled.li`

@@ -7,21 +7,21 @@ import {
 } from './styles.js';
 
 const DropdownSelect = ({ options, onSelect }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isopen, setIsopen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     onSelect(option);
-    setIsOpen(false);
+    setIsopen(false);
   };
 
   return (
     <DropdownContainer>
-      <DropdownButton onClick={() => setIsOpen(!isOpen)}>
+      <DropdownButton onClick={() => setIsopen(!isopen)}>
         {selectedOption || 'Select an option'}
       </DropdownButton>
-      <DropdownList isOpen={isOpen}>
+      <DropdownList isopen={isopen ? 'true' : 'false'}>
         {options.map((option) => (
           <DropdownListItem
             key={option.value}
