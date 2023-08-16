@@ -43,7 +43,7 @@ const Textarea = styled.textarea`
   border-radius: 8px;
   border: 1px solid #607b96;
   background: #011221;
-  height: ${({ height }) => (height ? `${height}px` : 'auto')};
+  height: ${({ height }) => (height ? `${height}px` : '150px')};
 `;
 
 export { FormRowWrapper, Label, Input, Textarea };
