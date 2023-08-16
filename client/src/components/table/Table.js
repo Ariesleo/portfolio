@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableContainer, TableHeader, TableRow, TableCell } from './styles';
 
-const Table = ({ headers, data }) => {
+const Table = ({ headers, data, addTableHeader, addTableCell }) => {
   return (
     <TableContainer>
       <thead>
@@ -9,6 +9,7 @@ const Table = ({ headers, data }) => {
           {headers.map((header, index) => (
             <TableHeader key={index}>{header}</TableHeader>
           ))}
+          {addTableHeader && <TableHeader>{addTableHeader}</TableHeader>}
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@ const Table = ({ headers, data }) => {
             {row.map((cell, cellIndex) => (
               <TableCell key={cellIndex}>{cell}</TableCell>
             ))}
+            {addTableCell && <TableCell>{addTableCell}</TableCell>}
           </TableRow>
         ))}
       </tbody>
