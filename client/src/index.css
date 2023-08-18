@@ -31,12 +31,17 @@ body {
   color: var(--light-white);
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 p {
   /* color: #607b96; */
   font-size: 16px;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
+  color: var(--textColor);
   font-family: var(--bodyFont);
 }
 
