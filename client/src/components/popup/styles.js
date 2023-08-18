@@ -11,6 +11,7 @@ const PopupContainer = styled.div`
   display: ${(props) => (props.visible === 'true' ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
+  overflow: auto; /* Enable scrolling when content overflows */
 `;
 
 const PopupContent = styled.div`
@@ -20,6 +21,8 @@ const PopupContent = styled.div`
   background-color: var(--dark);
   border: 2px solid var(--fade-dark);
   position: relative;
+  max-height: 80%; /* Set a maximum height to allow scrolling */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
 `;
 
 const CloseButton = styled(Button)`
