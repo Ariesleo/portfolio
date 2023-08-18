@@ -1,19 +1,13 @@
 import React from 'react';
 
-import {
-  NavbarContainer,
-  Nav,
-  Logo,
-  NavList,
-  NavItem,
-  NavLink,
-} from './styles.js';
+import { NavbarContainer, Logo, NavList, NavItem, NavLink } from './styles.js';
 
 const TopNavBar = () => {
   return (
     <NavbarContainer>
-      <Nav>
-        <Logo>murari-gupta</Logo>
+      <Logo>murari-gupta</Logo>
+      <div></div>
+      <div>
         <NavList>
           <NavItem>
             <NavLink to="/edit/profile">_profile</NavLink>
@@ -22,7 +16,7 @@ const TopNavBar = () => {
             <NavLink to="/edit/projects">_projects</NavLink>
           </NavItem>
         </NavList>
-      </Nav>
+      </div>
     </NavbarContainer>
   );
 };

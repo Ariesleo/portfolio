@@ -3,30 +3,27 @@ import { Link } from 'react-router-dom';
 
 const NavbarContainer = styled.div`
   margin: 0px;
-  padding: 1.1rem 0px;
+  padding: 1.1rem 1rem;
+  display: flex;
+  color: var(--grey);
   background-color: var(--dark);
   border-bottom: 1px solid var(--fade-dark);
-`;
-const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  padding-left: 2rem;
 `;
 
 const Logo = styled.div`
   font-size: 1rem;
+  width: 20%;
   font-weight: 450;
-  color: var(--grey);
 `;
 
 const NavList = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 `;
 
 const NavItem = styled.span`
-  margin-right: 20px;
+  padding: 0px 1rem;
 `;
 
 const NavLink = styled(Link)`
@@ -40,4 +37,4 @@ const NavLink = styled(Link)`
   }
 `;
 
-export { NavbarContainer, Nav, Logo, NavList, NavItem, NavLink };
+export { NavbarContainer, Logo, NavList, NavItem, NavLink };
