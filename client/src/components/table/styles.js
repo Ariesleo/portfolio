@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const TableContainer = styled.table`
-  width: 100%;
+  /* width: 100%; */
   border-collapse: collapse;
   border: 1px solid var(--fade-dark);
 `;
@@ -27,6 +27,9 @@ const TableCell = styled.td`
   color: var(--grey);
   font-size: 0.9rem;
   font-weight: 450;
+  max-height: 100px; /* Set maximum height for the cell */
+  max-width: 150px;
+  overflow: auto; /* Enable scrolling if content exceeds max-height */
 `;
 
 export { TableContainer, TableHeader, TableRow, TableCell };
