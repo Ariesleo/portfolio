@@ -18,7 +18,7 @@ const NavList = styled.div`
 `;
 
 const FindMe = styled.div`
-  width: 10%;
+  width: 150px;
   text-align: end;
   padding-right: 2%;
 `;
