@@ -6,14 +6,21 @@ import './SharedLayout.css'; // Import your CSS file for styling
 
 const SharedLayout = () => {
   return (
-    <div className="shared-layout">
-      <nav>
+    <div className="shared-layout-container">
+      {/* top nav */}
+      <nav className="sticky-top">
         <TopNav />
       </nav>
+
+      {/* body content */}
       <div className="content">
-        <Outlet />
+        <div className="scrollable-content">
+          <Outlet />
+        </div>
       </div>
-      <div className="footer">
+
+      {/* footer */}
+      <div className="sticky-bottom">
         <BottomNav />
       </div>
     </div>
