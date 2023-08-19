@@ -97,6 +97,7 @@ const GamePlayGround = styled.div`
 const KeyInstructions = styled.div`
   height: 405px;
   display: flex;
+  color: var(--grey);
   flex-direction: column;
   justify-content: space-between;
 `;
