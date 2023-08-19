@@ -24,7 +24,7 @@ const SnakeGame = () => {
           <img src={activeFood} alt="food" />
           <img src={snake} alt="snake" />
         </div>
-        <Button game>start-game</Button>
+        <Button game="true">start-game</Button>
       </GamePlayGround>
       <KeyInstructions>
         <div>
@@ -45,7 +45,7 @@ const SnakeGame = () => {
           </div>
         </div>
         <div>
-          <Button outlined style={{ float: 'right' }}>
+          <Button outlined="true" style={{ float: 'right' }}>
             Skip
           </Button>
         </div>
