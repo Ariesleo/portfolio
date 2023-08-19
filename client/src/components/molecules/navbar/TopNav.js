@@ -1,11 +1,14 @@
 import React from 'react';
-
+import { useAppContext } from '../../../context/appContext.js';
 import { NavbarContainer, Logo, NavList, NavItem, NavLink } from './styles.js';
 
 const TopNav = () => {
+  const profileData = useAppContext();
   return (
     <NavbarContainer>
-      <Logo>murari-gupta</Logo>
+      <Logo>
+        {profileData && profileData.name ? profileData.name : 'Your Name'}
+      </Logo>
       <NavList>
         <div>
           <NavItem>
