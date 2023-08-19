@@ -26,7 +26,7 @@ const Home = () => {
           </span>
         </GithubInfo>
         <GithubInfoMobile>
-          <p> // you can also see it on my Github page</p>
+          <p> // you can also see me on my Github page</p>
           <span style={{ color: '#4D5BCE' }}>const </span>
           <span style={{ color: '#43D9AD' }}>githubLink </span>={' '}
           <span style={{ color: '#E99287', textDecoration: 'underline' }}>

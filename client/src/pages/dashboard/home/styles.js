@@ -11,11 +11,20 @@ const Name = styled.div`
   font-size: 55px;
   font-weight: 400;
   letter-spacing: 2px;
+  @media (max-width: 750px) {
+    /* Tablet and below */
+    font-size: 40px;
+  }
 `;
 const Designation = styled.div`
   color: #4d5bce;
   font-size: 25px;
   font-weight: 450;
+
+  @media (max-width: 750px) {
+    /* Tablet and below */
+    font-size: 20px;
+  }
 `;
 
 const GithubInfo = styled.div`
