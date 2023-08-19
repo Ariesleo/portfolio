@@ -1,6 +1,6 @@
 import React from 'react';
 import github from '../../../images/svg/github.svg';
-import facebook from '../../../images/svg/facebook.svg';
+import linkedIn from '../../../images/svg/linkedIn.svg';
 import twitter from '../../../images/svg/twitter.svg';
 import {
   Wrapper,
@@ -21,9 +21,7 @@ const BottomNav = () => {
         </FindMe>
         <NavList>
           <Logos>
-            <a href="https://github.com" target="default">
-              <ImageLogo src={facebook} alt="github" />
-            </a>
+            <ImageLogo src={linkedIn} alt="github" />
             <ImageLogo src={twitter} alt="github" />
           </Logos>
           <NameAndLogo>
