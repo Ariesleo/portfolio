@@ -58,7 +58,7 @@ const Hamburger = styled.div`
     /* Tablet and below */
     display: block;
   }
-  @media (min-width: 751px) {
+  @media (min-width: 750px) {
     /* Tablet and above */
     display: none;
   }
