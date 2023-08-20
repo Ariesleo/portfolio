@@ -8,7 +8,7 @@ const TopNavBar = () => {
       <Logo>murari-gupta</Logo>
       <div></div>
       <div>
-        <NavList>
+        <NavList style={{ display: 'block' }}>
           <NavItem>
             <NavLink to="/edit/profile">_profile</NavLink>
           </NavItem>

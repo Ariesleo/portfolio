@@ -4,6 +4,7 @@ const CardContainer = styled.div`
   border-radius: 15px;
   border: 1px solid #1e2d3d;
   background: #011221;
+  margin: 10px 20px;
   width: 290px; /* Default width for mobile */
   @media (min-width: 768px) {
     /* Tablet and above */
