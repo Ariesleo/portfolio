@@ -39,7 +39,10 @@ const AboutMe = () => {
                 <span>
                   currently working on{' '}
                   {profileData && profileData.currentProject ? (
-                    <a href={profileData.currentProject.projectUrl}>
+                    <a
+                      href={profileData.currentProject.projectUrl}
+                      target="_default"
+                    >
                       {profileData.currentProject.projectName}
                     </a>
                   ) : (
