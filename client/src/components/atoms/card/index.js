@@ -9,7 +9,7 @@ import {
   TechStackItems,
   TechStack,
 } from './styles';
-import Button from '../atoms/button';
+import Button from '../button';
 
 const Card = ({
   imageSrc,
@@ -38,8 +38,8 @@ const Card = ({
           </TechStackItems>
         </TechStack>
         <CardButtons>
-          <Button text>Live Preview</Button>
-          <Button text>View Code</Button>
+          <Button text="true">Live Preview</Button>
+          <Button text="true">View Code</Button>
         </CardButtons>
       </CardWrapper>
     </CardContainer>
