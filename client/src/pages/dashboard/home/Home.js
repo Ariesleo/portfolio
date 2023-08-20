@@ -37,7 +37,9 @@ const Home = () => {
           <span style={{ color: '#4D5BCE' }}>const </span>
           <span style={{ color: '#43D9AD' }}>githubLink </span>={' '}
           <span style={{ color: '#E99287', textDecoration: 'underline' }}>
-            "https://github.com/user/url"
+            {profileData && profileData.media.githubUrl
+              ? profileData.media.githubUrl
+              : ''}
           </span>
         </GithubInfoMobile>
       </div>

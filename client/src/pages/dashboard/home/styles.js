@@ -29,10 +29,9 @@ const Designation = styled.div`
 
 const GithubInfo = styled.div`
   font-size: 16px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   margin-top: 25%;
+  color: var(--grey);
 
   @media (max-width: 900px) {
     /* Tablet and below */
@@ -41,12 +40,11 @@ const GithubInfo = styled.div`
 `;
 const GithubInfoMobile = styled.div`
   font-size: 16px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   margin-top: 100px;
+  color: var(--grey);
 
-  @media (min-width: 899px) {
+  @media (min-width: 900px) {
     /* Tablet and above */
     display: none;
   }
