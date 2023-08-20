@@ -14,8 +14,6 @@ import {
 
 const AboutMe = () => {
   const profileData = useAppContext();
-  // console.log(Object.entries(profileData.skills));
-  // const skills = Object.entries(profileData.skills);
 
   return (
     <>
