@@ -31,7 +31,11 @@ const AboutMe = () => {
             <div>
               <Image src={maskMan} alt="maskman" width="380px" height="340px" />
               <CurrentProjectStatus>
-                <div></div>
+                {profileData && profileData.currentProject ? (
+                  <div></div>
+                ) : (
+                  <></>
+                )}
                 <span>
                   currently working on{' '}
                   {profileData && profileData.currentProject ? (
