@@ -12,9 +12,8 @@ const Wrapper = styled.div`
 const NavList = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  /* background-color: lightgreen; */
+  justify-content: space-between;
 `;
 
 const FindMe = styled.div`
@@ -25,10 +24,12 @@ const FindMe = styled.div`
 
 const NameAndLogo = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const Logos = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const ImageLogo = styled.img`
