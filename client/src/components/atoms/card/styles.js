@@ -14,9 +14,14 @@ const CardContainer = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  height: 145px;
+  height: 220px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+
+  @media (max-width: 768px) {
+    /* Tablet and below */
+    height: 190px;
+  }
 `;
 
 const CardWrapper = styled.div`
