@@ -4,52 +4,36 @@ import ROUTEURL from '../constants/routeUrl';
 
 // post the project
 const addNewProject = async (payload) => {
-  try {
-    return await axios({
-      method: HTTPMEHOD.POST,
-      url: ROUTEURL.project,
-      data: payload,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  return await axios({
+    method: HTTPMEHOD.POST,
+    url: ROUTEURL.project,
+    data: payload,
+  });
 };
 
 // fetch the project
 const fetchProject = async () => {
-  try {
-    return await axios({
-      method: HTTPMEHOD.GET,
-      url: ROUTEURL.project,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  return await axios({
+    method: HTTPMEHOD.GET,
+    url: ROUTEURL.project,
+  });
 };
 
 // update the project
 const updateProject = async (payload, projectId) => {
-  try {
-    return await axios({
-      method: HTTPMEHOD.PATCH,
-      url: `${ROUTEURL.project}/${projectId}`,
-      data: payload,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  return await axios({
+    method: HTTPMEHOD.PATCH,
+    url: `${ROUTEURL.project}/${projectId}`,
+    data: payload,
+  });
 };
 
 // delete project
 const deleteProject = async (projectId) => {
-  try {
-    return await axios({
-      method: HTTPMEHOD.DELETE,
-      url: `${ROUTEURL.project}/${projectId}`,
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  return await axios({
+    method: HTTPMEHOD.DELETE,
+    url: `${ROUTEURL.project}/${projectId}`,
+  });
 };
 
 export { addNewProject, fetchProject, updateProject, deleteProject };
