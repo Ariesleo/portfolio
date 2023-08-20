@@ -1,6 +1,7 @@
 import Card from '../../../components/atoms/card';
 import React, { useState, useEffect } from 'react';
 import { fetchProject } from '../../../services/projectService';
+import { Wrapper, CardWrapper } from './styles';
 
 const Projects = () => {
   const [projectData, setProjectData] = useState([]);
@@ -23,29 +24,26 @@ const Projects = () => {
   }, []);
 
   return (
-    <>
-      {projectData.length === 0 ? (
-        <p>{errorMessage ? errorMessage : '...fetching data'}</p>
-      ) : (
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          {projectData.map((project) => (
-            <Card
-              key={project._id}
-              imageSrc={project.image}
-              title={project.title}
-              description={project.description}
-              techStacks={project.technologies}
-            />
-          ))}
-        </div>
-      )}
-    </>
+    <Wrapper>
+      <h4>#Projects----------</h4>
+      <>
+        {projectData.length === 0 ? (
+          <p>{errorMessage ? errorMessage : '...fetching data'}</p>
+        ) : (
+          <CardWrapper>
+            {projectData.map((project) => (
+              <Card
+                key={project._id}
+                imageSrc={project.image}
+                title={project.title}
+                description={project.description}
+                techStacks={project.technologies}
+              />
+            ))}
+          </CardWrapper>
+        )}
+      </>
+    </Wrapper>
   );
 };
 

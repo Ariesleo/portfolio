@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin: 5% 4%;
+  margin: 2% 4%;
   color: var(--grey);
 
   @media (max-width: 700px) {
