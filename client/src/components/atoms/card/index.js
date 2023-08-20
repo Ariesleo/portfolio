@@ -16,8 +16,8 @@ const Card = ({
   title,
   description,
   techStacks,
-  onEdit,
-  onDelete,
+  liveUrl,
+  codeUrl,
 }) => {
   return (
     <CardContainer>
@@ -38,8 +38,16 @@ const Card = ({
           </TechStackItems>
         </TechStack>
         <CardButtons>
-          <Button text="true">Live Preview</Button>
-          <Button text="true">View Code</Button>
+          {liveUrl && (
+            <a href={liveUrl} target="_default">
+              <Button text="true">Live Preview</Button>
+            </a>
+          )}
+          {codeUrl && (
+            <a href={codeUrl} target="_default">
+              <Button text="true">View Code</Button>
+            </a>
+          )}
         </CardButtons>
       </CardWrapper>
     </CardContainer>

@@ -38,6 +38,8 @@ const Projects = () => {
                 title={project.title}
                 description={project.description}
                 techStacks={project.technologies}
+                liveUrl={project.demoUrl}
+                codeUrl={project.githubUrl}
               />
             ))}
           </CardWrapper>
