@@ -28,18 +28,21 @@ const Home = () => {
           <p> // you can also see it on my Github page</p>
           <span style={{ color: '#4D5BCE' }}>const </span>
           <span style={{ color: '#43D9AD' }}>githubLink </span>={' '}
-          <span style={{ color: '#E99287', textDecoration: 'underline' }}>
-            "https://github.com/game/url"
+          <span style={{ color: '#E99287' }}>
+            <q>https://github.com/game/url</q>
           </span>
         </GithubInfo>
         <GithubInfoMobile>
           <p> // you can also see me on my Github page</p>
           <span style={{ color: '#4D5BCE' }}>const </span>
           <span style={{ color: '#43D9AD' }}>githubLink </span>={' '}
-          <span style={{ color: '#E99287', textDecoration: 'underline' }}>
-            {profileData && profileData.media.githubUrl
-              ? profileData.media.githubUrl
-              : ''}
+          <span style={{ color: '#E99287' }}>
+            {Object.keys(profileData).length > 0 &&
+            profileData.media.githubUrl ? (
+              <q>{profileData.media.githubUrl}</q>
+            ) : (
+              '...incoming url'
+            )}
           </span>
         </GithubInfoMobile>
       </div>
