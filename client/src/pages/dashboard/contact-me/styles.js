@@ -1,26 +1,36 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin: 2% 4%;
-  width: 100%;
-`;
-const BodyWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  /* align-items: center; */
-  justify-content: space-between;
+  padding: 0px 5%;
+  /* background-color: green; */
 `;
 
-const Heading = styled.h4`
-  color: var(--grey);
+const BodyWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 900px) {
+    /* Tablet and above */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const ContactForm = styled.div`
-  width: 600px;
+  width: 45%;
+  padding: 10px 50px;
   @media (max-width: 900px) {
     /* Tablet and above */
     width: 80%;
   }
+`;
+
+const Heading = styled.h4`
+  color: var(--grey);
+  margin: 0px 50px;
 `;
 
 const ThankyouBlock = styled.div`
@@ -34,18 +44,29 @@ const ThankyouBlock = styled.div`
 `;
 
 const ContactProfile = styled.div`
-  /* background-color: green; */
-  /* border: 1px solid var(--grey); */
+  width: 45%;
   padding: 20px 50px;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  /* justify-content: ; */
+  @media (max-width: 900px) {
+    /* Tablet and above */
+    width: 80%;
+    display: flex;
+    text-align: center;
+  }
 `;
+
 const Message = styled.div`
-  width: 430px;
+  /* width: 430px; */
   text-align: inherit;
   padding: 20px 20px;
   color: var(--grey);
   border: 1px solid #c778dd;
   border-radius: 8px;
 `;
+
 const Contact = styled.div`
   margin-top: 50px;
   padding: 20px 20px;
@@ -67,6 +88,7 @@ const NameAndLogo = styled.div`
   align-items: center;
   margin-top: 10px;
 `;
+
 const ImageLogo = styled.img`
   padding: 0px 5px;
 `;
