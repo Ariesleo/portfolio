@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
   border-radius: 15px;
-  border: 1px solid #1e2d3d;
+  border: 1px solid var(--grey);
   background: #011221;
   margin: 10px 20px;
   width: 290px; /* Default width for mobile */
