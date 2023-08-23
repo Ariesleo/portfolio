@@ -30,7 +30,7 @@ const Table = ({
               <TableCell>
                 <div style={{ display: 'flex' }}>
                   <Button onClick={() => handleUpdate(row)}>U</Button>
-                  <Button onClick={() => handleDelete(row)}>D</Button>
+                  <Button onClick={() => handleDelete(row._id)}>D</Button>
                 </div>
               </TableCell>
             )}
