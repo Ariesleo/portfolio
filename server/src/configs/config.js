@@ -12,6 +12,14 @@ const config = {
   from_email: env.FROM_EMAIL,
   to_email: env.TO_EMAIL,
   body_parser_limit: env.BODY_PARSER_LIMIT,
+
+  // USER INFORMATION
+  userName: env.USER_NAME,
+  userPassword: env.USER_PASSWORD,
+
+  // jwt
+  jwtSecret: env.JWT_SECRET,
+  jwtLifetime: env.JWT_LIFETIME,
 };
 
 export default config;
