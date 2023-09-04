@@ -11,6 +11,7 @@ import SharedLayout from './pages/dashboard/sharedLayout/SharedLayout';
 import EditProfile from './pages/editable/profile/EditProfile';
 import EditProjects from './pages/editable/projects/EditProjects';
 import EditLayout from './pages/editable/editableLayout/EditLayout';
+import SingIn from './pages/signIn/SingIn';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="profile" element={<EditProfile />} />
           <Route path="projects" element={<EditProjects />} />
         </Route>
+        <Route path="signin" element={<SingIn />} />
       </Routes>
     </BrowserRouter>
   );
