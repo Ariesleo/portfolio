@@ -11,7 +11,7 @@ import SnakeGame from './Game.js';
 import { useAppContext } from '../../../context/appContext.js';
 
 const Home = () => {
-  const profileData = useAppContext();
+  const { profileData } = useAppContext();
   return (
     <Wrapper>
       <div>

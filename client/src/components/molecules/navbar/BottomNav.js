@@ -13,7 +13,7 @@ import {
 import { useAppContext } from '../../../context/appContext';
 
 const BottomNav = () => {
-  const profileData = useAppContext();
+  const { profileData } = useAppContext();
   return (
     <>
       <Wrapper>

@@ -12,7 +12,7 @@ import {
 } from './styles.js';
 
 const TopNav = () => {
-  const profileData = useAppContext();
+  const { profileData } = useAppContext();
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {

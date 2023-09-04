@@ -23,7 +23,7 @@ const ContactMe = () => {
   const [message, setMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const profileData = useAppContext();
+  const { profileData } = useAppContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

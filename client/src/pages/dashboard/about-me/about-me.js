@@ -13,7 +13,7 @@ import {
 } from './styles';
 
 const AboutMe = () => {
-  const profileData = useAppContext();
+  const { profileData } = useAppContext();
 
   return (
     <>
