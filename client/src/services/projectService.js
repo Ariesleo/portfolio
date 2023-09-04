@@ -2,15 +2,6 @@ import axios from 'axios';
 import HTTPMEHOD from '../constants/method';
 import ROUTEURL from '../constants/routeUrl';
 
-// post the project
-const addNewProject = async (payload) => {
-  return await axios({
-    method: HTTPMEHOD.POST,
-    url: ROUTEURL.project,
-    data: payload,
-  });
-};
-
 // fetch the project
 const fetchProject = async () => {
   return await axios({
@@ -19,20 +10,31 @@ const fetchProject = async () => {
   });
 };
 
+// post the project
+const addNewProject = async (payload, jwtToken) => {
+  console.log(payload, jwtToken);
+  return await axios.post(ROUTEURL.project, payload, {
+    headers: {
+      Authorization: `Bearer ${jwtToken}`,
+    },
+  });
+};
+
 // update the project
-const updateProject = async (payload, projectId) => {
-  return await axios({
-    method: HTTPMEHOD.PATCH,
-    url: `${ROUTEURL.project}/${projectId}`,
-    data: payload,
+const updateProject = async (payload, projectId, jwtToken) => {
+  return await axios.patch(`${ROUTEURL.project}/${projectId}`, payload, {
+    headers: {
+      Authorization: `Bearer ${jwtToken}`,
+    },
   });
 };
 
 // delete project
-const deleteProject = async (projectId) => {
-  return await axios({
-    method: HTTPMEHOD.DELETE,
-    url: `${ROUTEURL.project}/${projectId}`,
+const deleteProject = async (projectId, jwtToken) => {
+  return await axios.delete(`${ROUTEURL.project}/${projectId}`, {
+    headers: {
+      Authorization: `Bearer ${jwtToken}`,
+    },
   });
 };
 

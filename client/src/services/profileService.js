@@ -10,11 +10,11 @@ const fetchProfile = async () => {
   });
 };
 
-const updateProfile = async (payload) => {
-  return await axios({
-    method: HTTPMEHOD.PATCH,
-    url: ROUTEURL.profile,
-    data: payload,
+const updateProfile = async (payload, jwtToken) => {
+  return await axios.patch(ROUTEURL.profile, payload, {
+    headers: {
+      Authorization: `Bearer ${jwtToken}`,
+    },
   });
 };
 
