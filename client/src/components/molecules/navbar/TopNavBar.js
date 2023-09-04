@@ -10,10 +10,10 @@ const TopNavBar = () => {
       <div>
         <NavList style={{ display: 'block' }}>
           <NavItem>
-            <NavLink to="/edit/profile">_profile</NavLink>
+            <NavLink to="/admin/profile">_profile</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/edit/projects">_projects</NavLink>
+            <NavLink to="/admin/projects">_projects</NavLink>
           </NavItem>
         </NavList>
       </div>

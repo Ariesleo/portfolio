@@ -26,7 +26,7 @@ function App() {
         </Route>
 
         {/* Editing Routes */}
-        <Route path="/edit" element={<EditLayout />}>
+        <Route path="/admin" element={<EditLayout />}>
           <Route index element={<EditProfile />} />
           <Route path="profile" element={<EditProfile />} />
           <Route path="projects" element={<EditProjects />} />
