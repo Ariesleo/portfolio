@@ -3,10 +3,15 @@ import FormRow from '../../components/atoms/formRow';
 import { Wrapper, FormWrapper } from './styles';
 import Button from '../../components/atoms/button';
 import { signIn } from '../../services/authService';
+import { useNavigate } from 'react-router-dom';
 
 const SingIn = () => {
   const [payload, setPayload] = useState({});
   const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Initialize useHistory
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,16 +39,22 @@ const SingIn = () => {
 
       if (token) {
         localStorage.setItem('protfolioToken', token);
+        // Redirect to the profile page
+        navigate('/admin/profile');
       }
     } catch (error) {
-      console.error('Error updating profile data:', error);
+      const message = error.response.data.error.message;
+      setErrorMessage(message);
     }
   };
   return (
     <>
-      {message && <span>{message}</span>}
       <Wrapper>
         <FormWrapper>
+          {message && <span>{message}</span>}
+          {errorMessage && (
+            <p style={{ color: 'red', textAlign: 'center' }}>{errorMessage}</p>
+          )}
           <h3 style={{ textAlign: 'center' }}>SignIn</h3>
           <form onSubmit={handleSubmit}>
             <FormRow
