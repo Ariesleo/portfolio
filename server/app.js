@@ -1,5 +1,6 @@
 import express from 'express';
 import config from './src/configs/config.js';
+import authRoute from './src/routes/authRoute.js';
 import profileRoute from './src/routes/profileRoute.js';
 import projectRoute from './src/routes/projectRoute.js';
 import contactRoute from './src/routes/contactsQuery.js';
@@ -21,6 +22,9 @@ app.use(
 app.use('/api/v1/contacts', contactRoute);
 app.use('/api/v1/projects', projectRoute);
 app.use('/api/v1/profile', profileRoute);
+
+// auth
+app.use('/api/v1/auth', authRoute);
 
 // handling all the unhandled routes
 app.all('*', (req, res, next) => {
