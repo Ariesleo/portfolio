@@ -23,8 +23,9 @@ const AppProvider = ({ children }) => {
     fetchProfileData();
   }, []);
 
+  const token = localStorage.getItem('protfolioToken');
   return (
-    <AppContext.Provider value={profileData}>
+    <AppContext.Provider value={{ profileData, token }}>
       {!errorMessage ? children : errorMessage}
     </AppContext.Provider>
   );
