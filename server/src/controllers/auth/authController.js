@@ -33,11 +33,3 @@ const login = async (req, res, next) => {
 };
 
 export { login };
-
-/* 
- have to do two more things 
- 1==> generate the token
- 2==> store the token in the database
- 3==> send the token to the client
- 4==> client will request the data to the server 
-*/
