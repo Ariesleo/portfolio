@@ -5,6 +5,7 @@ import Popup from '../../../components/popup/Popup';
 import { fetchProject, deleteProject } from '../../../services/projectService';
 import Button from '../../../components/atoms/button';
 import AddProjectForm from './AddProjectForm';
+import { useAppContext } from '../../../context/appContext';
 
 const EditProjects = () => {
   const [projectData, setProjectData] = useState([]);
@@ -15,6 +16,9 @@ const EditProjects = () => {
   const [projectId, setProjectId] = useState(null);
 
   const [addProjectPopUp, setAddProjectPopUp] = useState(false);
+
+  // token
+  const { token } = useAppContext();
 
   const closePopup = () => {
     setPopupVisible(false);
@@ -47,9 +51,14 @@ const EditProjects = () => {
     setDeletePopUp(true);
   };
   const removeProjectById = async () => {
-    const response = await deleteProject(projectId);
-    setDeleteMessage(response.data.message);
-    setDeletePopUp(true);
+    try {
+      const response = await deleteProject(projectId, token);
+      setDeleteMessage(response.data.message);
+      setDeletePopUp(true);
+    } catch (err) {
+      const message = err.response.data.error.message;
+      setDeleteMessage(message);
+    }
   };
 
   // handling the side effect of the setTimer

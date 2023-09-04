@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../../components/atoms/button';
 import FormRow from '../../../components/atoms/formRow';
+import { useAppContext } from '../../../context/appContext';
 import { fetchProfile, updateProfile } from '../../../services/profileService';
 
 const initialState = {
@@ -41,6 +42,9 @@ const EditProfile = () => {
   const [profileData, setProfileData] = useState(initialState);
   const [message, setMessage] = useState('');
 
+  // token
+  const { token } = useAppContext();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfileData((prevData) => ({
@@ -73,14 +77,23 @@ const EditProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(token);
     try {
       // Perform PATCH request to update the profile data on the backend
-      const response = await updateProfile(profileData);
+      const response = await updateProfile(profileData, token);
+      console.log({ response });
       if (response.data.message) {
         setMessage(response.data.message);
       }
     } catch (error) {
       console.error('Error updating profile data:', error);
+      const { code, message } = error.response.data.error;
+      if (code === 'FORBIDDEN') {
+        console.log(message);
+
+        // return back  to the login page
+      }
     }
   };
 
@@ -94,7 +107,7 @@ const EditProfile = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [profileData]);
 
   return (
     <>

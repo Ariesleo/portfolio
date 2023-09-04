@@ -4,6 +4,7 @@ import FormRow from '../../../components/atoms/formRow';
 import DatePicker from '../../../components/atoms/datePicker/DatePicker';
 import DropdownSelect from '../../../components/atoms/dropdown/Dropdown';
 import { addNewProject } from '../../../services/projectService';
+import { useAppContext } from '../../../context/appContext';
 
 const AddProjectForm = () => {
   const [project, setProject] = useState({});
@@ -15,6 +16,9 @@ const AddProjectForm = () => {
   // dates
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  // token
+  const { token } = useAppContext();
 
   const options = [
     { label: 'true', value: 'true' },
@@ -100,10 +104,11 @@ const AddProjectForm = () => {
         image,
         isPersonalProject,
       };
-      const response = await addNewProject(payload);
+      const response = await addNewProject(payload, token);
       setMessage(response.data.message);
     } catch (error) {
-      setMessage('Error submitting project data.');
+      const message = error.response.data.error.message;
+      setMessage(message);
     }
   };
   return (

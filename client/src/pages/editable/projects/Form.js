@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../../components/atoms/button';
 import FormRow from '../../../components/atoms/formRow';
+import { useAppContext } from '../../../context/appContext';
 import { updateProject } from '../../../services/projectService';
 import DatePicker from '../../../components/atoms/datePicker/DatePicker';
 import DropdownSelect from '../../../components/atoms/dropdown/Dropdown';
@@ -15,6 +16,9 @@ const UpdateForm = ({ rowData }) => {
   // dates
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  // token
+  const { token } = useAppContext();
 
   const options = [
     { label: 'true', value: 'true' },
@@ -108,10 +112,11 @@ const UpdateForm = ({ rowData }) => {
         image,
         isPersonalProject,
       };
-      const response = await updateProject(payload, _id);
+      const response = await updateProject(payload, _id, token);
       setMessage(response.data.message);
     } catch (error) {
-      setMessage('Error submitting project data.');
+      const message = error.response.data.error.message;
+      setMessage(message);
     }
   };
   return (
@@ -121,20 +126,20 @@ const UpdateForm = ({ rowData }) => {
           <FormRow
             label="_title"
             name="title"
-            value={project.title}
+            value={project.title || ''}
             onChange={handleChange}
           />
           <FormRow
             label="_description"
             name="description"
             isTextarea
-            value={project.description}
+            value={project.description || ''}
             onChange={handleChange}
           />
           <FormRow
             label="_technologies (comma-separated)"
             name="technologies"
-            value={project.technologies}
+            value={project.technologies || ''}
             onChange={handleTechnologiesChange}
           />
 
@@ -183,13 +188,13 @@ const UpdateForm = ({ rowData }) => {
           <FormRow
             label="GitHub URL"
             name="githubUrl"
-            value={project.githubUrl}
+            value={project.githubUrl || ''}
             onChange={handleChange}
           />
           <FormRow
             label="Demo URL"
             name="demoUrl"
-            value={project.demoUrl}
+            value={project.demoUrl || ''}
             onChange={handleChange}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
