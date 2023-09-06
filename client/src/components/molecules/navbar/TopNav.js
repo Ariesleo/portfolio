@@ -22,7 +22,12 @@ const TopNav = () => {
   return (
     <NavbarContainer>
       <Logo>
-        {profileData && profileData.name ? profileData.name : 'Your Name'}
+        <NavLink
+          to="/"
+          style={{ color: '#607b96', fontSize: '18px', fontWeight: '600' }}
+        >
+          {profileData && profileData.name ? profileData.name : 'Your Name'}
+        </NavLink>
       </Logo>
       <NavList>
         <div>
