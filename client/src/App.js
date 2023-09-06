@@ -12,6 +12,7 @@ import EditProfile from './pages/editable/profile/EditProfile';
 import EditProjects from './pages/editable/projects/EditProjects';
 import EditLayout from './pages/editable/editableLayout/EditLayout';
 import SingIn from './pages/signIn/SingIn';
+import NotFound from './pages/404NotFound/NotFound';
 
 function App() {
   return (
@@ -30,8 +31,9 @@ function App() {
           <Route index element={<EditProfile />} />
           <Route path="profile" element={<EditProfile />} />
           <Route path="projects" element={<EditProjects />} />
+          <Route path="signin" element={<SingIn />} />
         </Route>
-        <Route path="signin" element={<SingIn />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
