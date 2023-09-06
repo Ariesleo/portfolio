@@ -107,7 +107,7 @@ const EditProfile = () => {
       }
     };
     fetchData();
-  }, [profileData]);
+  }, []);
 
   return (
     <>
