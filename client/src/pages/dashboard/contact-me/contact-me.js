@@ -119,8 +119,8 @@ const ContactMe = () => {
         <ContactProfile>
           <Message>
             <span>
-              I'm interested in freelance opportunities. However, if you have
-              other request or question, don't hesitate to contact me.
+              I'm also interested in freelance opportunities. However, if you
+              have other request or question, don't hesitate to contact me.
             </span>
           </Message>
           <Contact>

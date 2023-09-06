@@ -28,22 +28,43 @@ const Home = () => {
           <p> // you can also see it on my Github page</p>
           <span style={{ color: '#4D5BCE' }}>const </span>
           <span style={{ color: '#43D9AD' }}>githubLink </span>={' '}
-          <span style={{ color: '#E99287' }}>
-            <q>https://github.com/game/url</q>
-          </span>
+          {Object.keys(profileData).length > 0 &&
+          profileData.media.githubUrl ? (
+            <span style={{ color: '#E99287' }}>
+              <q>
+                <a
+                  style={{ color: 'inherit', textDecoration: 'none' }}
+                  href={profileData.media.githubUrl}
+                  target="default"
+                >
+                  {profileData.media.githubUrl}
+                </a>
+              </q>
+            </span>
+          ) : (
+            '...incoming url'
+          )}
         </GithubInfo>
         <GithubInfoMobile>
           <p> // you can also see me on my Github page</p>
           <span style={{ color: '#4D5BCE' }}>const </span>
           <span style={{ color: '#43D9AD' }}>githubLink </span>={' '}
-          <span style={{ color: '#E99287' }}>
-            {Object.keys(profileData).length > 0 &&
-            profileData.media.githubUrl ? (
-              <q>{profileData.media.githubUrl}</q>
-            ) : (
-              '...incoming url'
-            )}
-          </span>
+          {Object.keys(profileData).length > 0 &&
+          profileData.media.githubUrl ? (
+            <span style={{ color: '#E99287' }}>
+              <q>
+                <a
+                  style={{ color: 'inherit', textDecoration: 'none' }}
+                  href={profileData.media.githubUrl}
+                  target="default"
+                >
+                  {profileData.media.githubUrl}
+                </a>
+              </q>
+            </span>
+          ) : (
+            '...incoming url'
+          )}
         </GithubInfoMobile>
       </div>
       <SnakeGame />

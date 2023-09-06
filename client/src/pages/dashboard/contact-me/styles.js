@@ -60,7 +60,7 @@ const ContactProfile = styled.div`
 
 const Message = styled.div`
   /* width: 430px; */
-  text-align: inherit;
+  text-align: justify;
   padding: 20px 20px;
   color: var(--grey);
   border: 1px solid #c778dd;
