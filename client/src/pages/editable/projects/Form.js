@@ -130,6 +130,7 @@ const UpdateForm = ({ rowData }) => {
         setMessage(message);
       } else {
         console.log(message);
+        setMessage(message);
       }
     }
   };
