@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import config from './src/configs/config.js';
 import authRoute from './src/routes/authRoute.js';
@@ -10,6 +11,12 @@ import { ApplicationError } from './src/lib/api/error/applicationError.js';
 
 // Initializing the express app
 const app = express();
+
+app.use(
+  cors({
+    origin: config.appUrl,
+  })
+);
 
 // parsing
 // Increase request body size limit

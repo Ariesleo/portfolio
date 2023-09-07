@@ -20,6 +20,9 @@ const config = {
   // jwt
   jwtSecret: env.JWT_SECRET,
   jwtLifetime: env.JWT_LIFETIME,
+
+  // url
+  appUrl: env.APP_URL,
 };
 
 export default config;
