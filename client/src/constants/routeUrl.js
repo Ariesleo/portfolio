@@ -1,9 +1,11 @@
+const baseUrl = process.env.REACT_APP_API_URL;
+
 const ROUTEURL = {
-  profile: `/api/v1/profile`,
-  project: `/api/v1/projects`,
-  contact: `/api/v1/contacts`,
+  profile: `${baseUrl}/api/v1/profile`,
+  project: `${baseUrl}/api/v1/projects`,
+  contact: `${baseUrl}/api/v1/contacts`,
   auth: {
-    login: `/api/v1/auth/signin`,
+    login: `${baseUrl}/api/v1/auth/signin`,
   },
 };
 
