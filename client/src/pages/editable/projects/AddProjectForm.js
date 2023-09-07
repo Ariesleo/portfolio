@@ -5,10 +5,14 @@ import DatePicker from '../../../components/atoms/datePicker/DatePicker';
 import DropdownSelect from '../../../components/atoms/dropdown/Dropdown';
 import { addNewProject } from '../../../services/projectService';
 import { useAppContext } from '../../../context/appContext';
+import { useNavigate } from 'react-router-dom';
 
 const AddProjectForm = () => {
   const [project, setProject] = useState({});
   const [message, setMessage] = useState('');
+
+  // Initialize useHistory
+  const navigate = useNavigate();
 
   // Image
   const [selectedImage, setSelectedImage] = useState(null);
@@ -107,8 +111,19 @@ const AddProjectForm = () => {
       const response = await addNewProject(payload, token);
       setMessage(response.data.message);
     } catch (error) {
-      const message = error.response.data.error.message;
-      setMessage(message);
+      console.error('Error updating profile data:', error);
+      const { code, message } = error.response.data.error;
+
+      if (code === 'FORBIDDEN' || code === 'UNAUTHORIZED') {
+        console.log(message);
+        setMessage(message);
+        navigate('/admin/signin');
+      } else if (code === 'VALIDATION_ERROR') {
+        setMessage(message);
+      } else {
+        console.log(message);
+        setMessage(message);
+      }
     }
   };
   return (

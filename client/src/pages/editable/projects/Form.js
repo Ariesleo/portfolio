@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Button from '../../../components/atoms/button';
 import FormRow from '../../../components/atoms/formRow';
@@ -9,6 +10,9 @@ import DropdownSelect from '../../../components/atoms/dropdown/Dropdown';
 const UpdateForm = ({ rowData }) => {
   const [project, setProject] = useState(rowData);
   const [message, setMessage] = useState('');
+
+  // Initialize useHistory
+  const navigate = useNavigate();
 
   // Image
   const [selectedImage, setSelectedImage] = useState(null);
@@ -115,8 +119,18 @@ const UpdateForm = ({ rowData }) => {
       const response = await updateProject(payload, _id, token);
       setMessage(response.data.message);
     } catch (error) {
-      const message = error.response.data.error.message;
-      setMessage(message);
+      console.error('Error updating profile data:', error);
+      const { code, message } = error.response.data.error;
+
+      if (code === 'FORBIDDEN' || code === 'UNAUTHORIZED') {
+        console.log(message);
+        setMessage(message);
+        navigate('/admin/signin');
+      } else if (code === 'VALIDATION_ERROR') {
+        setMessage(message);
+      } else {
+        console.log(message);
+      }
     }
   };
   return (
