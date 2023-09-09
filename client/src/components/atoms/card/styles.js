@@ -24,6 +24,15 @@ const CardImage = styled.img`
   }
 `;
 
+const DummyCardImage = styled.div`
+  width: 100%;
+  height: 220px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const CardWrapper = styled.div`
   padding: 5px 20px;
 `;
@@ -76,6 +85,7 @@ const Button = styled.button`
 export {
   CardContainer,
   CardImage,
+  DummyCardImage,
   CardTitle,
   CardDescription,
   CardButtons,

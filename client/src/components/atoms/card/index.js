@@ -2,6 +2,7 @@ import React from 'react';
 import {
   CardContainer,
   CardImage,
+  DummyCardImage,
   CardTitle,
   CardDescription,
   CardButtons,
@@ -21,10 +22,15 @@ const Card = ({
 }) => {
   return (
     <CardContainer>
-      <CardImage src={imageSrc} alt={title} />
+      {imageSrc ? (
+        <CardImage src={imageSrc} alt={title} />
+      ) : (
+        <DummyCardImage>No Image to display</DummyCardImage>
+      )}
+
       <CardWrapper>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription>{description.slice(0, 250)}...</CardDescription>
 
         <TechStack>
           Tech stack:
