@@ -43,7 +43,6 @@ const getProfile = async (req, res, next) => {
     if (!profileData) {
       throw new ApplicationError(CommonError.RESOURCE_NOT_FOUND);
     } else {
-      console.log({ profileData });
       res.status(statusCodes.OK).send({
         success: 'true',
         message: `Profile was fetched sucessfully`,

@@ -21,8 +21,6 @@ app.use(
   })
 );
 
-console.log('application url', config.appUrl);
-
 // Parsing middleware
 // Increase request body size limit
 app.use(express.json({ limit: config.body_parser_limit }));
