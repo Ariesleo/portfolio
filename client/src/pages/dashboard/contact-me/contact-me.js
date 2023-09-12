@@ -70,7 +70,7 @@ const ContactMe = () => {
 
   return (
     <Wrapper>
-      <Heading>#Contacts----------</Heading>
+      <Heading>#Contacts--------</Heading>
       <BodyWrapper>
         <ContactForm>
           {successMessage ? (
