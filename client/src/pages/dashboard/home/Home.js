@@ -17,7 +17,7 @@ const Home = () => {
       <div>
         {/* basic info section */}
         <span>Hi all. I am</span>
-        <Name>{profileData.name || '...'}</Name>
+        <Name>{profileData.name || 'Murari Kumar Gupta'}</Name>
         <Designation>
           &gt;{' '}
           {profileData.designation

@@ -26,7 +26,9 @@ const TopNav = () => {
           to="/"
           style={{ color: '#607b96', fontSize: '18px', fontWeight: '600' }}
         >
-          {profileData && profileData.name ? profileData.name : 'Your Name'}
+          {profileData && profileData.name
+            ? profileData.name
+            : 'Murari Kumar Gupta'}
         </NavLink>
       </Logo>
       <NavList>
